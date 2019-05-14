@@ -1,0 +1,64 @@
+.everyday{
+	width: 95.5%;
+	border: 1px solid #e3e3e3;
+	background-color:#f5f5f5 ;
+	padding: 10px 15px;
+	border-radius: 5px;
+	box-shadow: 4px 3px 4px;
+	margin-bottom: 20px;
+}
+.everyday>.title{
+	color: skyblue;
+	font-size: 15px;
+}
+.everyday>.content-d{
+	font-size: 13px;
+	color:#333 ;
+}
+.everyday>.content-d>.english{
+	padding: 5px 0;
+}
+.everyday>.content-d>.chinese{
+	display: inline-block;
+	padding: 5px 0;
+}
+.everyday>.content-d>.where{
+	float: right;
+	padding: 5px 0;
+}
+.articles{
+	border: 1px solid #e3e3e3;
+	background-color:#f5f5f5 ;
+	margin-bottom: 20px;
+	border-radius: 5px;
+}
+.articles>.title{
+	padding: 5px 10px;
+}
+.articles>.title>a{
+	font-size: 20px;
+	color:#13102b ;
+	font-weight: 500;
+}
+.articles>.content-a{
+	padding: 5px 10px;
+	font-size: 14px;
+	color: #333;
+	margin-bottom: 10px;
+}
+.articles>.messages{
+	background-color: #1f1f1f;
+	color: #eee;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 0 0 5px 5px;
+	padding: 0 10px;
+}
+
+
+
+
+
+
+
