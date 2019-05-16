@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>blog write</title>
+	</head>
+
+	<body>
+		<div style="margin:10px 0;">
+			标题：<input type="text" placeholder="请输入文章标题" id="title" style="width: 300px; height: 20px;">
+			标签：<input type="text" placeholder="请输入文章标签,以英文逗号隔开" id="tags" style="width: 300px; height: 20px;">
+		</div>
+		<div id="div1">
+			<p>请输入文章内容</p>
+		</div>
+
+		<button id="btn2" style="margin-top: 10px;">提交</button>
+
+		<!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script type="text/javascript" src="./js/wangEditor.min.js"></script>
+		<script type="text/javascript">
+			var E = window.wangEditor
+			var editor = new E('#div1')
+			editor.customConfig.uploadImgShowBase64 = true;
+			editor.create()
+			document.getElementById('btn2').addEventListener('click', function() {
+				var content = editor.txt.html();
+				var title = document.getElementById('title').value;
+				var tags = document.getElementById('tags').value;
+				console.log(content, title, tags);
+				axios.post('/writeArticle', {
+						title,
+						content,
+						tags,
+					})
+					.then(function(response) {
+						console.log(response);
+						alert(response.data);
+						document.getElementById('title').value = '';
+						document.getElementById('tags').value ='';
+						editor.txt.html() = "请输入文章内容";
+					})
+					.catch(function(error) {
+						console.log(error);
+					});
+			}, false)
+		</script>
+		<!-- <script src="https://cdn.bootcss.com/jquery/3.4.1/core.js"></script> -->
+		
+	</body>
+</html>

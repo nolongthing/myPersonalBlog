@@ -6,7 +6,6 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="./css/base.css" />
 		<link rel="stylesheet" type="text/css" href="./css/index.css" />
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</head>
 	<body>
 		<header id="header" class="header">
@@ -27,50 +26,27 @@
 			</div>
 
 		</header>
-		<div class="content">
+		<div class="content" id="content">
 			<div class="content-left">
-				<div class="everyday">
+				<div class="everyday" id="everyday">
 					<div class="title">每日一句</div>
 					<div class="content-d">
-						<div class="english">Of all the gin joints in all the towns in all the world, she walks into mine.</div>
-						<div class="chinese">世界上有那么多的城镇，城镇中有那么多的酒馆，她却走进了我的酒馆。</div>
-						<div class="where">———— 《卡萨布兰卡》</div>
+						<div class="english">{{dayen}}</div>
+						<div class="chinese">{{daych}}</div>
+						<div class="where">———— 《{{daywh}}》</div>
 					</div>
 				</div>
-				<div class="articles">
-					<div class="title"><a href="#">unoconv：在OpenOffice支持的任何文档格式之间进行转换</a></div>
-					<div class="content-a">doc带格式转文本，如html之前发布过使用antiword把doc文档转出成纯文本，但这个工具的转出是无格式的，下面是我找到的一款工具，说是可以把任何openoffice支持的格式的文档进行互转，我只测试了doc转到html。具体文档见这里：http://dag.wiee.rs/home-made/unoconv/还有这里：https://www.systutorials.com/docs/linux/man/1-unoconv/我在ubuntu下使用sudo
-						apt-get install unoconv可以...</div>
-					<div class="messages">
-						<span>发布于2018-08-02</span>
-						<span>|</span>
-						<span>浏览(2,676)</span>
-						<span>|</span>
-						<span>Tags：unoconv</span>
-					</div>
-				</div>
-				<div class="articles">
-					<div class="title"><a href="#">unoconv：在OpenOffice支持的任何文档格式之间进行转换</a></div>
-					<div class="content-a">doc带格式转文本，如html之前发布过使用antiword把doc文档转出成纯文本，但这个工具的转出是无格式的，下面是我找到的一款工具，说是可以把任何openoffice支持的格式的文档进行互转，我只测试了doc转到html。具体文档见这里：http://dag.wiee.rs/home-made/unoconv/还有这里：https://www.systutorials.com/docs/linux/man/1-unoconv/我在ubuntu下使用sudo
-						apt-get install unoconv可以...</div>
-					<div class="messages">
-						<span>发布于2018-08-02</span>
-						<span>|</span>
-						<span>浏览(2,676)</span>
-						<span>|</span>
-						<span>Tags：unoconv</span>
-					</div>
-				</div>
-				<div class="articles">
-					<div class="title"><a href="#">unoconv：在OpenOffice支持的任何文档格式之间进行转换</a></div>
-					<div class="content-a">doc带格式转文本，如html之前发布过使用antiword把doc文档转出成纯文本，但这个工具的转出是无格式的，下面是我找到的一款工具，说是可以把任何openoffice支持的格式的文档进行互转，我只测试了doc转到html。具体文档见这里：http://dag.wiee.rs/home-made/unoconv/还有这里：https://www.systutorials.com/docs/linux/man/1-unoconv/我在ubuntu下使用sudo
-						apt-get install unoconv可以...</div>
-					<div class="messages">
-						<span>发布于2018-08-02</span>
-						<span>|</span>
-						<span>浏览(2,676)</span>
-						<span>|</span>
-						<span>Tags：unoconv</span>
+				<div id="articles">
+					<div class="articles" v-for="(item,index) in articleList">
+						<div class="title"><a :href="'/article.html?id='+item.id">{{item.title}}</a></div>
+						<div class="content-a">{{item.content}}</div>
+						<div class="messages">
+							<span>发布于{{item.c_time}}</span>
+							<span>|</span>
+							<span>浏览({{item.watch_time}})</span>
+							<span>|</span>
+							<span>Tags：{{item.tags}}</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -120,12 +96,12 @@
 						<li>
 							<a href="#">挨踢茶馆</a>
 							<a href="#">挨踢茶馆</a>
-						</li>        
-						<li>         
+						</li>
+						<li>
 							<a href="#">挨踢茶馆</a>
 							<a href="#">挨踢茶馆</a>
-						</li>        
-						<li>         
+						</li>
+						<li>
 							<a href="#">挨踢茶馆</a>
 							<a href="#">挨踢茶馆</a>
 						</li>
@@ -144,8 +120,11 @@
 				<span>新闻资讯</span>
 				<span>新闻资讯</span>
 			</div>
-			<div class="about">Copyright © 2010-2017 郑晓个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</div>
+			<div class="about">Copyright © 2010-2017 Lee个人博客 All rights reserved. vue+express+mysql. </div>
 		</footer>
 	</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="./js/index.js" type="text/javascript" charset="utf-8"></script>
 </html>
