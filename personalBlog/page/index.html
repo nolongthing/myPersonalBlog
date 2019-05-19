@@ -37,7 +37,7 @@
 					</div>
 				</div>
 				<div id="articles">
-					<div class="articles" v-for="(item,index) in articleList">
+					<div class="articles" v-for="(item,index) in articleList" :key='index'>
 						<div class="title"><a :href="'/article.html?id='+item.id">{{item.title}}</a></div>
 						<div class="content-a">{{item.content}}</div>
 						<div class="messages">
